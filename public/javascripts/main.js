@@ -1,6 +1,6 @@
 function displayAll(){
 
-
+/*
   console.log(local_data)
   if (navigator.geolocation) {
     console.log('Geolocation is supported!');
@@ -8,6 +8,7 @@ function displayAll(){
   else {
     console.log('Geolocation is not supported for this Browser/OS.');
   }
+  */
 
 }
 
