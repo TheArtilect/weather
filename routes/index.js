@@ -16,7 +16,10 @@ router.get('/', function(req, res, next) {
 
 
 
+
+
   http.get(url, function (response){
+    var readings = {}//{high: 'yes', low: 'no'};
     response.setEncoding('utf8');
 
     response.pipe(bl(function(err, data){
@@ -24,9 +27,12 @@ router.get('/', function(req, res, next) {
 
       var json = JSON.parse(data).forecast;
       var day = json.simpleforecast.forecastday[0]
+      var dayT = json.txt_forecast.forecastday[0]
 
 
-      var readings = {
+      readings = {
+        weekday: dayT.title,
+        ftext: dayT.fcttext,
         high: day.high, // { faren: x, cel: y}
         low: day.low, // {faren: x, cel: y}
         conditions: day.conditions,
@@ -35,6 +41,7 @@ router.get('/', function(req, res, next) {
       }
       console.log(readings)
 
+      res.render('index', { title: 'Local Weather', author: "Ian Agpawa", data: readings });
 
     })) //  response
 
@@ -46,7 +53,7 @@ router.get('/', function(req, res, next) {
   }) // https
 
 
-  res.render('index', { title: 'Local Weather', author: "Ian Agpawa", data: "We're getting there" });
+
 });
 
 module.exports = router;

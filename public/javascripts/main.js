@@ -1,14 +1,23 @@
 function displayAll(){
 
-/*
-  console.log(local_data)
-  if (navigator.geolocation) {
-    console.log('Geolocation is supported!');
-  }
-  else {
-    console.log('Geolocation is not supported for this Browser/OS.');
-  }
-  */
+  var weatherObj = local_data
+  var day = weatherObj.weekday;
+  var ftext = weatherObj.ftext;
+  var high = weatherObj.high
+  var low = weatherObj.low
+  var conditions = weatherObj.conditions
+  var icon = weatherObj.icon
+  var icon_url = weatherObj.icon_url
+
+
+  $("#conditions").text(conditions)
+  $("#icon").attr('src', icon_url)
+  $("#high").text(JSON.stringify(parseInt(high.fahrenheit)))
+  $("#low").text(JSON.stringify(parseInt(low.fahrenheit)))
+  $("#text").text(ftext)
+  $("#day").text(day)
+
+
 
 }
 
