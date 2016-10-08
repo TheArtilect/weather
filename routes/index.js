@@ -14,15 +14,28 @@ router.get('/', function(req, res, next) {
   var weatherKey = process.env.UNDERGROUND;
   var url = "http://api.wunderground.com/api/" + weatherKey + "/forecast/q/autoip.json?geo_ip=" + ip + ".json"
 
-  console.log(url)
+
+
   http.get(url, function (response){
     response.setEncoding('utf8');
 
     response.pipe(bl(function(err, data){
       if (err) throw err;
 
-      var json = JSON.parse(data);
-      console.log(json)
+      var json = JSON.parse(data).forecast;
+      var day = json.simpleforecast.forecastday[0]
+
+
+      var readings = {
+        high: day.high, // { faren: x, cel: y}
+        low: day.low, // {faren: x, cel: y}
+        conditions: day.conditions,
+        icon: day.icon,
+        icon_url: day.icon_url
+      }
+      console.log(readings)
+
+
     })) //  response
 
     //NEED TO res.render variables in here
