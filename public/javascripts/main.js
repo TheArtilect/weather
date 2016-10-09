@@ -1,12 +1,16 @@
 function displayAll(){
 
+  function stringy(str){
+    return JSON.stringify(parseInt(str))
+  }
+
   var weatherObj = local_data
   var day = weatherObj.weekday;
   var ftext = weatherObj.ftext;
   var high = weatherObj.high
-  var highF = JSON.stringify(parseInt(high.fahrenheit));
+  var highF = stringy(high.fahrenheit);
   var low = weatherObj.low
-  var lowF = JSON.stringify(parseInt(low.fahrenheit));
+  var lowF = stringy(low.fahrenheit);
   var conditions = weatherObj.conditions
   var icon = weatherObj.icon
   var icon_url = weatherObj.icon_url
@@ -20,16 +24,16 @@ function displayAll(){
   $("#day").html(day)
 
   $("#convert").on('click', function(){
-    if (highF == JSON.stringify(parseInt(high.fahrenheit))){
-      highF = JSON.stringify(parseInt(high.celsius));
-      lowF = JSON.stringify(parseInt(low.celsius))
-      $("#convert").html("Convert to Fahrenheit");
+    if (highF == stringy(high.fahrenheit)){
+      highF = stringy(high.celsius);
+      lowF = stringy(low.celsius);
+      $("#convert").html("Fahrenheit");
       $("#high").html("High: " + highF + "&#8451;")
       $("#low").html("Low: " + lowF + "&#8451;")
     } else {
-      highF = JSON.stringify(parseInt(high.fahrenheit));
-      lowF = JSON.stringify(parseInt(low.fahrenheit));
-      $("#convert").html("Convert to Celsius");
+      highF = stringy(high.fahrenheit);
+      lowF = stringy(low.fahrenheit);
+      $("#convert").html("Celsius");
       $("#high").html("High: " + highF + "&#8457;")
       $("#low").html("Low: " + lowF + "&#8457;")
     } // else

@@ -1,9 +1,18 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  align: middle;
 }
 
-a {
-  color: #00B7FF;
+#port {
+  color: #B29600;
+}
+
+#convert{
+  background-color: black;
+  color: white;
+  width: 55%;
+  margin-left: 25%;
+  margin-top: 2%;
+  font-size: 1.4em;
+  border-radius: 25px;
 }
