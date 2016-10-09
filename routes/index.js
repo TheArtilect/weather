@@ -9,7 +9,7 @@ var bl = require('bl');
 
 router.get('/', function(req, res, next) {
   var header = req.headers;
-  var ip = process.env.TEST_IP
+  var ip = header['x-forwarded-for']
 
   var weatherKey = process.env.UNDERGROUND;
   var url = "http://api.wunderground.com/api/" + weatherKey + "/forecast/q/autoip.json?geo_ip=" + ip + ".json"
