@@ -3,8 +3,13 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+h1{
+  padding-top: 8vh;
+}
+
 #port {
-  color: #B29600;
+  color: #B79A00;
+  /* color: #0724b0; */
 }
 
 #convert{
@@ -12,7 +17,20 @@ body {
   color: white;
   width: 55%;
   margin-left: 25%;
-  margin-top: 2%;
+  margin-top: 2vh;
   font-size: 1.4em;
   border-radius: 25px;
+}
+
+#icon{
+  height: 70px;
+  width: 70px;
+}
+
+.temp {
+  font-size: 1.3em;
+}
+
+#day {
+  margin-top: 2vh;
 }

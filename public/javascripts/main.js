@@ -17,7 +17,7 @@ function displayAll(){
 
 
   $("#conditions").html(conditions)
-  $("#icon").attr('src', icon_url)
+  $("#icon").attr('src', icon_url);
   $("#high").html("High: " + highF + "&#8457;")
   $("#low").html("Low: " + lowF + "&#8457;")
   $("#text").html(ftext)

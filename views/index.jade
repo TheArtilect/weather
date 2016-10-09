@@ -1,19 +1,19 @@
 extends layout
 
 block content
-  div(id="overall" class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 text-center") 
+  div(class='text-center') 
   
     h1= title
     h3 By 
       a(id="port" href="https://ian-agpawa.herokuapp.com" target="_blank") #{author}
-    div
+    div(id="overall" class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 text-center")
       
       h2(id="conditions")
       img(id='icon')
 
       
-      div(id='high')
-      div(id='low')
+      div(id='high' class='temp')
+      div(id='low' class='temp')
       p(id='convert') Celsius
       h4(id="day")
       

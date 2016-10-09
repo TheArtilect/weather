@@ -9,7 +9,7 @@ var bl = require('bl');
 
 router.get('/', function(req, res, next) {
   var header = req.headers;
-  var ip = header['x-forwarded-for']
+  var ip = header['x-forwarded-for'] || process.env.TEST_IP // needed for testing
 
   var weatherKey = process.env.UNDERGROUND;
   var url = "http://api.wunderground.com/api/" + weatherKey + "/forecast/q/autoip.json?geo_ip=" + ip + ".json"
@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 
 
   http.get(url, function (response){
-    var readings = {}//{high: 'yes', low: 'no'};
+    var readings = {}
     response.setEncoding('utf8');
 
     response.pipe(bl(function(err, data){
@@ -44,12 +44,13 @@ router.get('/', function(req, res, next) {
 
     })) //  response
 
-    //NEED TO res.render variables in here
 
 
   }).on('error', function (e){
     console.log("ERROR: "+ e.message)
   }) // https
+
+
 
 
 
