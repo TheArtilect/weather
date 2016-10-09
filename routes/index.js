@@ -39,7 +39,6 @@ router.get('/', function(req, res, next) {
         icon: day.icon,
         icon_url: day.icon_url
       }
-      console.log(readings)
 
       res.render('index', { title: 'Local Weather', author: "Ian Agpawa", data: readings });
 
