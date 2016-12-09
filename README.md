@@ -2,7 +2,7 @@
 
 ### By Ian Agpawa
 
-#### This repo is for a local weather app, which I had improved upon a project from freeCodeCamp's Front End Development Certifcation.
+#### This repo is for a local weather app, which is an updated version of a project from freeCodeCamp's Front End Development Certification.
 
 
 ### Quick Start
